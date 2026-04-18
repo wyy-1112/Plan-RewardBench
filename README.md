@@ -63,6 +63,35 @@ Each instance is a JSON object with the following structure:
 
 Trajectories contain interleaved messages with roles: `user`, `assistant`, `tool_call`, and `tool_response`.
 
+### Loading the Data
+
+**From HuggingFace:**
+
+```python
+from datasets import load_dataset
+
+dataset = load_dataset("wyy1112/Plan-RewardBench")
+
+# Iterate over instances
+for item in dataset["train"]:
+    print(item["uuid"], item["_lcp_bucket"])
+    chosen_msgs = item["chosen"]["messages"]
+    reject_msgs = item["reject"]["messages"]
+```
+
+> **Note**: HuggingFace displays a single `train` split — this is simply the container for the full evaluation benchmark, **not** a training set. Plan-RewardBench is an **evaluation-only** benchmark.
+
+**From local JSONL files:**
+
+```python
+import json
+
+with open("benchmark/planning_multi_easy.jsonl") as f:
+    for line in f:
+        item = json.loads(line)
+        print(item["uuid"], len(item["chosen"]["messages"]), "turns")
+```
+
 ---
 
 ## 🚀 Quick Start
@@ -94,18 +123,31 @@ export QWEN_BASE_URL="your-endpoint"
 **2. Run with an LLM-as-Judge:**
 
 ```bash
+# Evaluate a single model (must match a name in config.yaml)
 python eval/evaluate_benchmark_final.py \
   --config eval/config.yaml \
   --data-dir benchmark \
   --output-dir results \
-  --models gpt-5 \
+  --models gpt-4o \
+  --workers 16 \
+  --benchmarks all
+
+# Evaluate multiple models at once
+python eval/evaluate_benchmark_final.py \
+  --config eval/config.yaml \
+  --data-dir benchmark \
+  --output-dir results \
+  --models deepseek-r1 qwen-max \
   --workers 16 \
   --benchmarks all
 ```
 
-**3. Run with a local Discriminative RM:**
+**3. Run with a local Discriminative RM (requires GPU + torch):**
 
 ```bash
+# Install PyTorch first if not already installed:
+#   pip install torch  (see https://pytorch.org for CUDA-specific instructions)
+
 python eval/evaluate_benchmark_final.py \
   --config eval/config.yaml \
   --data-dir benchmark \
@@ -125,7 +167,7 @@ python -m vllm.entrypoints.openai.api_server \
   --tensor-parallel-size 2 \
   --port 8000
 
-# Run evaluation
+# Run evaluation (model name must match config.yaml)
 python eval/evaluate_benchmark_final.py \
   --config eval/config.yaml \
   --data-dir benchmark \
@@ -134,6 +176,8 @@ python eval/evaluate_benchmark_final.py \
   --workers 8 \
   --benchmarks all
 ```
+
+> **Note**: The `--models` argument must match a model `name` defined in [`eval/config.yaml`](eval/config.yaml). If no match is found, the script will report `"No matching models found"`.
 
 See [`eval/run_eval.sh`](eval/run_eval.sh) for more examples.
 
