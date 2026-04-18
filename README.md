@@ -60,8 +60,13 @@ Trajectories contain interleaved messages with roles: `user`, `assistant`, `tool
 ### Installation
 
 ```bash
-git clone https://github.com/your-org/Plan-RewardBench.git
+git clone https://github.com/wyy-1112/Plan-RewardBench.git
 cd Plan-RewardBench
+
+# Create and activate conda environment
+conda create -n plan-rewardbench python=3.10 -y
+conda activate plan-rewardbench
+
 pip install -r eval/requirements.txt
 ```
 
@@ -212,4 +217,7 @@ If you find Plan-RewardBench useful, please cite our paper:
 
 ## 📬 Contact
 
-Questions or suggestions? Please open an [Issue](https://github.com/your-org/Plan-RewardBench/issues) on GitHub.
+Questions or suggestions? Feel free to reach out:
+
+- 📧 **Email**: jiaxuanwang@smail.nju.edu.cn
+- 💬 **GitHub Issues**: [Open an issue](https://github.com/wyy-1112/Plan-RewardBench/issues)
