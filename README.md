@@ -1,9 +1,19 @@
 # 🏆 Plan-RewardBench
 
-**A Comprehensive Benchmark for Trajectory-Level Reward Modeling in Tool-Augmented Agents**
+<p align="center">
+  <em>A Comprehensive Benchmark for Trajectory-Level Reward Modeling in Tool-Augmented Agents</em>
+</p>
 
-> **Paper**: [Aligning Agents via Planning: A Benchmark for Trajectory-Level Reward Modeling](https://arxiv.org/abs/2604.08178)
-> **Data**: Coming soon on HuggingFace
+<p align="center">
+  <a href="https://arxiv.org/abs/2604.08178"><img src="https://img.shields.io/badge/arXiv-2604.08178-b31b1b.svg?style=flat-square" alt="arXiv"></a>
+  <a href="https://huggingface.co/datasets/wyy1112/Plan-RewardBench"><img src="https://img.shields.io/badge/🤗_HuggingFace-Dataset-ffbd45.svg?style=flat-square" alt="HuggingFace"></a>
+  <a href="https://github.com/wyy-1112/Plan-RewardBench"><img src="https://img.shields.io/badge/GitHub-Code-181717.svg?style=flat-square&logo=github" alt="GitHub"></a>
+  <a href="https://github.com/wyy-1112/Plan-RewardBench/blob/main/LICENSE"><img src="https://img.shields.io/badge/Code-Apache_2.0-green.svg?style=flat-square" alt="License"></a>
+  <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/Data-CC_BY_4.0-lightgrey.svg?style=flat-square" alt="Data License"></a>
+  <img src="https://img.shields.io/badge/Pairs-1%2C171-blue.svg?style=flat-square" alt="Pairs">
+  <img src="https://img.shields.io/badge/Scenarios-4_Families-orange.svg?style=flat-square" alt="Scenarios">
+  <img src="https://img.shields.io/badge/Conference-ACL_2026-purple.svg?style=flat-square" alt="ACL 2026">
+</p>
 
 ---
 
