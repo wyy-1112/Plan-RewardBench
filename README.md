@@ -12,7 +12,7 @@
   <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/Data-CC_BY_4.0-lightgrey.svg?style=flat-square" alt="Data License"></a>
   <img src="https://img.shields.io/badge/Pairs-1%2C171-blue.svg?style=flat-square" alt="Pairs">
   <img src="https://img.shields.io/badge/Scenarios-4_Families-orange.svg?style=flat-square" alt="Scenarios">
-  <img src="https://img.shields.io/badge/Conference-ACL_2026-purple.svg?style=flat-square" alt="ACL 2026">
+  <img src="https://img.shields.io/badge/Conference-ACL_2026_Main-purple.svg?style=flat-square" alt="ACL 2026 Main">
 </p>
 
 ---
