@@ -1,0 +1,30 @@
+Plan-RewardBench License
+========================
+
+This project uses a dual-license structure:
+
+## Code (Apache 2.0)
+
+All evaluation scripts, configuration files, and utilities in this repository
+are licensed under the Apache License, Version 2.0.
+
+You may obtain a copy of the License at:
+  https://www.apache.org/licenses/LICENSE-2.0
+
+## Data (CC BY 4.0)
+
+All benchmark datasets (files in the `benchmark/` directory) are licensed under
+the Creative Commons Attribution 4.0 International License.
+
+You may obtain a copy of the License at:
+  https://creativecommons.org/licenses/by/4.0/
+
+## Summary
+
+- You are free to use, modify, and distribute the code under Apache 2.0 terms.
+- You are free to use, share, and adapt the data, provided you give appropriate
+  credit, under CC BY 4.0 terms.
+- Neither license grants trademark rights.
+- Both licenses come with NO WARRANTY.
+
+For questions about licensing, please open an issue on the project repository.

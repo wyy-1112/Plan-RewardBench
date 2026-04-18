@@ -1,0 +1,46 @@
+# Results and outputs
+results/
+eval_results/
+eval/results/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary scripts
+benchmark/clean_metadata.py
+benchmark/remove_difficulty.py
+
+# LaTeX / Paper (not for public release)
+*.tex
+*.pdf
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz

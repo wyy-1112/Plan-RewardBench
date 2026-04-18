@@ -1,0 +1,107 @@
+# Configuration file for Plan-RewardBench evaluation
+# Specify models to evaluate
+#
+# Supported model_type values:
+#   - "llm_judge": LLM-as-Judge via OpenAI-compatible API
+#   - "bt": Local Bradley-Terry reward model (requires GPU)
+#   - "bt_remote": Remote reward model via HTTP API
+#
+# For API keys, use environment variables: ${ENV_VAR_NAME}
+
+models:
+  # =============================================
+  # LLM-as-Judge Models 
+  # =============================================
+
+  # Example: OpenAI GPT
+  - name: "gpt-4o"
+    model_type: "llm_judge"
+    api_key: "${OPENAI_API_KEY}"
+    base_url: "https://api.openai.com/v1"
+    temperature: 0.0
+    max_tokens: 4096
+
+  # Example: DeepSeek
+  - name: "deepseek-r1"
+    model_type: "llm_judge"
+    api_key: "${DEEPSEEK_API_KEY}"
+    base_url: "https://api.deepseek.com/v1"
+    temperature: 0.0
+    max_tokens: 32768
+
+  # Example: Qwen (via OpenAI-compatible endpoint)
+  # You can use any OpenAI-compatible API endpoint for Qwen models
+  - name: "qwen-max"
+    model_type: "llm_judge"
+    api_key: "${QWEN_API_KEY}"
+    base_url: "${QWEN_BASE_URL}"  # Set to your Qwen API endpoint
+    temperature: 0.0
+    max_tokens: 4096
+
+  # Example: Local vLLM-deployed model
+  - name: "qwen3-30b-local"
+    model_type: "llm_judge"
+    api_key: "EMPTY"
+    base_url: "http://localhost:8000/v1"
+    temperature: 0.0
+    max_tokens: 32768
+
+  # =============================================
+  # Generative Reward Models (via vLLM, same pairwise protocol as LLM judges)
+  # =============================================
+
+  # RRM-32B (Microsoft Research)
+  - name: "RRM-32B"
+    model_type: "llm_judge"
+    api_key: "EMPTY"
+    base_url: "http://localhost:8000/v1"  # vLLM: --served-model-name RRM-32B
+    temperature: 0.0
+    max_tokens: 4096
+
+  # M-Prometheus-14B (Unbabel)
+  - name: "M-Prometheus-14B"
+    model_type: "llm_judge"
+    api_key: "EMPTY"
+    base_url: "http://localhost:8000/v1"  # vLLM: --served-model-name M-Prometheus-14B
+    temperature: 0.0
+    max_tokens: 4096
+
+  # RM-R1-DeepSeek-Distilled-Qwen-32B (UIUC)
+  - name: "RM-R1-DS-Distill-Qwen-32B"
+    model_type: "llm_judge"
+    api_key: "EMPTY"
+    base_url: "http://localhost:8000/v1"  # vLLM: --served-model-name RM-R1-DS-Distill-Qwen-32B
+    temperature: 0.0
+    max_tokens: 4096
+
+  # =============================================
+  # Bradley-Terry Reward Models (local GPU)
+  # =============================================
+
+  # Example: Skywork Reward V2
+  - name: "skywork-reward-v2-llama3.1-8b"
+    model_type: "bt"
+    model_path: "Skywork/Skywork-Reward-V2-Llama-3.1-8B"  # HuggingFace repo or local path
+    device: "cuda"
+    dtype: "bfloat16"
+    max_length: 16384
+    tie_eps: 0.0001
+
+  # Example: InternLM2 Reward
+  - name: "internlm2-7b-reward"
+    model_type: "bt"
+    model_path: "internlm/internlm2-7b-reward"
+    device: "cuda:0"
+    dtype: "bfloat16"
+    max_length: 16384
+    tie_eps: 0.0001
+
+  # =============================================
+  # Remote Reward Models (via serve_reward_model.py API)
+  # =============================================
+
+  # Example: Remote BT model
+  # - name: "qrm-gemma-2-27b-remote"
+  #   model_type: "bt_remote"
+  #   base_url: "http://your-server:8000"
+  #   tie_eps: 0.0001
